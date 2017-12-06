@@ -7,24 +7,30 @@
     <version>1.0-SNAPSHOT</version>
     <name>enterprise-application</name>
     <url>http://maven.apache.org</url>
+
+    <properties>
+        <spring.version>4.3.13.RELEASE</spring.version>
+        <junit.version>4.12</junit.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.3.13.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.3.13.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
