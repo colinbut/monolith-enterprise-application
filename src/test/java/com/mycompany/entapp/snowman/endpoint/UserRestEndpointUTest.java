@@ -6,22 +6,44 @@
 package com.mycompany.entapp.snowman.endpoint;
 
 import com.mycompany.entapp.snowman.model.User;
-import com.mycompany.entapp.snowman.service.UserService;
+import com.mycompany.entapp.snowman.service.impl.UserServiceImpl;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+@RunWith(MockitoJUnitRunner.class)
 public class UserRestEndpointUTest {
 
     @Mock
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @InjectMocks
-    private UserRestEndpoint classInTest;
+    private UserRestEndpoint classInTest = new UserRestEndpoint();
+
 
     @Test
     public void getUserWithUserIdShouldReturnTheUser() {
         User user = new User();
+        user.setUserId(1);
+        user.setUsername("Username");
+        user.setPassword("Password");
+        user.setFirstname("Firstname");
+        user.setLastname("Lastname");
+        user.setEmail("Email");
 
+        Mockito.when(userService.findUser("1")).thenReturn(user);
+
+        ResponseEntity<User> responseEntity = classInTest.getUser("1");
+
+        assertTrue(responseEntity.getStatusCode() == HttpStatus.OK);
+        assertEquals(user, responseEntity.getBody());
     }
 }
