@@ -22,7 +22,6 @@
         <property name="basename" value="error"/>
     </bean>
 
-
     <!-- validator (for doing Bean Validation)-->
     <bean id="validator"
           class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
