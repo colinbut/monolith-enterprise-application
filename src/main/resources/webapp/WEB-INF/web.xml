@@ -12,7 +12,7 @@
 
     <servlet-mapping>
         <servlet-name>SpringServlet</servlet-name>
-        <url-pattern>/snowman/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 
