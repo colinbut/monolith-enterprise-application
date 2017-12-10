@@ -14,9 +14,44 @@
         <java.version>1.7</java.version>
         <mockito.version>1.10.19</mockito.version>
         <jetty.version>9.4.3.v20170317</jetty.version>
+        <jaxrs.version>2.0</jaxrs.version>
+        <bean.validation.version>2.0.0.Final</bean.validation.version>
+        <expression.language.version>3.0.0</expression.language.version>
+        <glassfish.expression.language>2.2.6</glassfish.expression.language>
+        <hibernate.validator.version>5.4.2.Final</hibernate.validator.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>${jaxrs.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${bean.validation.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>${expression.language.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>${glassfish.expression.language}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -27,6 +62,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
