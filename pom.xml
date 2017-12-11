@@ -5,7 +5,7 @@
     <artifactId>enterprise-application</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>enterprise-application</name>
+    <name>Enterprise Application - Snowman</name>
     <url>http://maven.apache.org</url>
 
     <properties>
