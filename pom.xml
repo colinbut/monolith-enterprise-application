@@ -21,7 +21,8 @@
         <hibernate.validator.version>5.4.2.Final</hibernate.validator.version>
         <apache.commons-lang3.version>3.6</apache.commons-lang3.version>
         <jackson.databind.version>2.5.0</jackson.databind.version>
-        <hsqldb.version>2.3.2</hsqldb.version>
+        <hyperSql.version>2.3.2</hyperSql.version>
+        <h2.version>1.4.187</h2.version>
     </properties>
 
     <dependencies>
@@ -121,7 +122,13 @@
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
-            <version>${hsqldb.version}</version>
+            <version>${hyperSql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
         </dependency>
 
     </dependencies>
