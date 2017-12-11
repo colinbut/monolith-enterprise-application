@@ -24,6 +24,7 @@
         <hyperSql.version>2.3.2</hyperSql.version>
         <h2.version>1.4.187</h2.version>
         <derby.version>10.11.1.1</derby.version>
+        <mysql.version>6.0.6</mysql.version>
     </properties>
 
     <dependencies>
@@ -136,6 +137,12 @@
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
             <version>${derby.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
 
     </dependencies>
