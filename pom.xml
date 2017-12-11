@@ -23,6 +23,7 @@
         <jackson.databind.version>2.5.0</jackson.databind.version>
         <hyperSql.version>2.3.2</hyperSql.version>
         <h2.version>1.4.187</h2.version>
+        <derby.version>10.11.1.1</derby.version>
     </properties>
 
     <dependencies>
@@ -129,6 +130,12 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${h2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>${derby.version}</version>
         </dependency>
 
     </dependencies>
