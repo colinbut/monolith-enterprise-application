@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/user")
 public class UserRestEndpoint {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ResponseEntity<User> getUser(@PathVariable("userId") String userId) {
         return ResponseEntity.ok(userService.findUser(userId));
     }
