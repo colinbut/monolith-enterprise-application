@@ -12,13 +12,16 @@ import org.eclipse.jetty.webapp.WebAppContext;
 
 public class EnterpriseApplication {
 
+    private static final int DEFAULT_PORT = 8090;
+
     public static void main(String[] args) throws Exception {
         System.out.println("Running as a Fat Jar");
 
         final Server server = new Server();
 
         final ServerConnector serverConnector = new ServerConnector(server);
-        serverConnector.setPort(8090);
+
+        serverConnector.setPort(resolvePort());
 
         server.setConnectors(new Connector[]{serverConnector});
 
@@ -40,7 +43,7 @@ public class EnterpriseApplication {
                     try {
                         server.stop();
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        throw new RuntimeException(e);
                     }
                 }
             }
@@ -48,5 +51,13 @@ public class EnterpriseApplication {
 
         server.join();
 
+    }
+
+    private static int resolvePort() {
+        try {
+            return Integer.parseInt(System.getProperty("port"));
+        } catch (NumberFormatException ex) {
+            return DEFAULT_PORT;
+        }
     }
 }
