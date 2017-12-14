@@ -12,7 +12,10 @@
 - [Disaster & Recovery](d&r)
 
 This project aims to provide a skeleton example of a common traditional (perhaps now viewed as legacy) enterprise
-like application.
+like application. 
+
+_Note, this project is not a complete application, it only serves the purpose of providing a variety of specific
+demonstrations only._
 
 #### <a name="preamble"></a>Preamble
 
