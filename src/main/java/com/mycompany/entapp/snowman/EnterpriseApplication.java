@@ -15,8 +15,7 @@ public class EnterpriseApplication {
     private static final int DEFAULT_PORT = 8090;
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Running as a Fat Jar");
-
+        
         final Server server = new Server();
 
         final ServerConnector serverConnector = new ServerConnector(server);
