@@ -14,7 +14,7 @@
 This project aims to provide a skeleton example of a common traditional (perhaps now viewed as legacy) enterprise
 like application. 
 
-_Note, this project is not a complete application, it only serves the purpose of providing a variety of specific
+_Note, this project is not a complete application and i have no intention of making it complete, it only serves the purpose of providing a variety of specific
 demonstrations only._
 
 #### <a name="preamble"></a>Preamble
