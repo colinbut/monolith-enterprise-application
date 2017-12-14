@@ -1,9 +1,12 @@
 # Enterprise Application : Snowman
 
+This project aims to provide a skeleton example of a common traditional (perhaps now viewed as legacy) enterprise
+like application.
+
 Snowman is an fictional enterprise scale/ready employee management system (EMS). This project uses Snowman to 
 demonstrate the characteristics of a stereotypical backend enterprise application.
   
-This online web shop exposes its functionality via REST (-like) endpoints. Essentially this is a 
+Snowman exposes its functionality via REST (-like) endpoints. Essentially this is a 
 backend web service.
 
 #### Database Migration
