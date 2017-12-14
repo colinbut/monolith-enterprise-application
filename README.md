@@ -1,5 +1,12 @@
 # Enterprise Application : Snowman
 
+## Table of Contents
+
+- [Database Migration](#database-migration)
+- [Scalability](#scalability)
+- [Clustering](#clustering)
+- [Failover & Recovery](#f&r)
+
 This project aims to provide a skeleton example of a common traditional (perhaps now viewed as legacy) enterprise
 like application.
 
@@ -9,7 +16,7 @@ demonstrate the characteristics of a stereotypical backend enterprise applicatio
 Snowman exposes its functionality via REST (-like) endpoints. Essentially this is a 
 backend web service.
 
-#### Database Migration
+#### <a name="database-migration"></a>Database Migration
 
 Database updates are implemented using patches via changesets with a database migration tool in [liquibase](http://www.liquibase.org/)
 to execute them in order to 'patch' up the database.
@@ -28,7 +35,7 @@ And to rollback those particular patches:
 mvn liquibase:rollback -Dliquibase.rollbackCount=1
 ```
 
-### Scalability
+### <a name="scalability"></a>Scalability
 
 1. Horizonantal Scalability
 2. Vertical Scalability
@@ -54,3 +61,26 @@ parameters like the following:
 ```java
 java -jar -Xms256m -Xmx2048m target/Snowman.jar
 ```
+
+### <a name="clustering"></a>Clustering
+
+No clustering options. This application does not run in a managed cluster. Horizontal scalability
+was chosen as demonstration in favour of running Cluster Servers to achieve Clustering.
+
+See [Scalability](#scalability) for more info.
+
+### <a name="f&r"></a>Failover and Recovery
+
+No F&R is supported. 
+
+You can failover the application easily (assuming you are running 
+multiple instances to mimic multiple nodes servers). Just do a:
+
+```bash
+kill -9 [pid]
+```
+
+where pid is the process id of the particular application node server.
+
+But there is no Recovery. Because no Clustering options. Refer to [Clustering](#clustering) section.
+
