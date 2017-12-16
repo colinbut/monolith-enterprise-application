@@ -8,8 +8,7 @@
 - [Database Migration](#database-migration)
 - [Scalability](#scalability)
 - [Clustering](#clustering)
-- [Failover & Recovery](#f&r)
-- [Disaster & Recovery](d&r)
+- [Resiliency](#resiliency)
 
 This project aims to provide a skeleton example of a common traditional (perhaps now viewed as legacy) enterprise
 like application. 
@@ -100,7 +99,12 @@ was chosen as demonstration in favour of running Cluster Servers to achieve Clus
 
 See [Scalability](#scalability) for more info.
 
-### <a name="f&r"></a>Failover and Recovery
+### <a name="resiliency"></a>Resiliency
+
+1. Failover and Recovery
+2. Disaster and Recovery
+
+#### Failover and Recovery
 
 No F&R is supported. 
 
@@ -115,7 +119,7 @@ where pid is the process id of the particular application node server.
 
 But there is no Recovery. Because no Clustering options. Refer to [Clustering](#clustering) section.
 
-### <a name="d&r"></a>Disaster and Recovery
+#### Disaster and Recovery
 
 Although not specifically supported here, you can achieve this also. Manual intervention is required 
 though in order to start up the application (or group of applications) together. 
