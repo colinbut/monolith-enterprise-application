@@ -7,22 +7,79 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 <changeSet id="1" author="Colin">
-        <comment>Create Table User</comment>
+        <comment>Create Domain Model Tables</comment>
         <sql>
-            create table user (
+
+            create table employee_role (
                 id INT PRIMARY KEY AUTO_INCREMENT,
-                username VARCHAR(20),
-                password VARCHAR(20),
-                email VARCHAR(30),
-                firstname VARCHAR(30),
-                secondname VARCHAR(30)
+                role VARCHAR(30) NOT NULL
             );
+
+            create table employee (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                firstname VARCHAR(20) NOT NULL,
+                surname VARCHAR(20) NOT NULL,
+                employee_role_id INT,
+                FOREIGN KEY (employee_role_id) REFERENCES employee_role(id) ON DELETE CASCADE
+            );
+
+            create table client (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                client_name VARCHAR(30) NOT NULL
+            );
+
+            create table project (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                project_title VARCHAR(20) NOT NULL,
+                date_started DATE NOT NULL,
+                date_ended DATE,
+                client_id INT NOT NULL,
+                FOREIGN KEY (client_id) REFERENCES client(id) ON DELETE CASCADE
+            );
+
+            create table employee_project (
+                employee_id INT,
+                project_id INT,
+                date_started DATE,
+                date_ended DATE,
+                PRIMARY KEY (employee_id, project_id)
+            );
+
         </sql>
+
+        <rollback>
+            drop table employee_project;
+            drop table project;
+            drop table client;
+            drop table employee_role;
+            drop table employee;
+        </rollback>
     </changeSet>
 
     <changeSet id="2" author="Colin">
-        <comment>Create Table Product</comment>
-
+        <comment>Create Application Table - User</comment>
+        <createTable tableName="user">
+            <column name="id" type="INT"/>
+            <column name="username" type="VARCHAR(20)"/>
+            <column name="password" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(20)"/>
+            <column name="firstname" type="VARCHAR(20)"/>
+            <column name="secondname" type="VARCHAR(20)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="user"/>
+        </rollback>
     </changeSet>
 
+
+    <changeSet id="3" author="Colin">
+        <comment>Create Application Table - App Info</comment>
+        <createTable tableName="app_info">
+            <column name="id" type="INT"/>
+            <column name="version" type="VARCHAR(20)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="app_info"/>
+        </rollback>
+    </changeSet>
 </databaseChangeLog>

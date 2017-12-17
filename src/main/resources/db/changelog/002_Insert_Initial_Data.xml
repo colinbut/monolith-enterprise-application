@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+<changeSet id="1" author="Colin">
+        <comment>Insert employee roles</comment>
+        <sql>
+            insert into employee_role (role) values ('Development Manager');
+            insert into employee_role (role) values ('Testing Manager');
+            insert into employee_role (role) values ('Software Developer');
+            insert into employee_role (role) values ('Technical Architect');
+            insert into employee_role (role) values ('Solutions Architect');
+            insert into employee_role (role) values ('Enterprise Architect');
+            insert into employee_role (role) values ('Data Architect');
+            insert into employee_role (role) values ('Integration Architect');
+            insert into employee_role (role) values ('Systems Architect');
+            insert into employee_role (role) values ('Infrastructure Architect');
+            insert into employee_role (role) values ('Operations Architect');
+            insert into employee_role (role) values ('Frontend Architect');
+            insert into employee_role (role) values ('Build Engineer');
+            insert into employee_role (role) values ('Java Developer');
+            insert into employee_role (role) values ('Full Stack Developer');
+            insert into employee_role (role) values ('Frontend Developer');
+            insert into employee_role (role) values ('Team Lead');
+            insert into employee_role (role) values ('Operations Engineer');
+            insert into employee_role (role) values ('Systems Administrator');
+            insert into employee_role (role) values ('Linux Engineer');
+            insert into employee_role (role) values ('DevOps Engineer');
+            insert into employee_role (role) values ('Database Administrator');
+            insert into employee_role (role) values ('Test Engineer');
+            insert into employee_role (role) values ('QA');
+            insert into employee_role (role) values ('Test Automation Engineer');
+            insert into employee_role (role) values ('SDET');
+            insert into employee_role (role) values ('Developer In Test');
+            insert into employee_role (role) values ('Tech Tester');
+            insert into employee_role (role) values ('Business Analyst');
+            insert into employee_role (role) values ('Product Owner');
+            insert into employee_role (role) values ('Scrum Master');
+            insert into employee_role (role) values ('Support Analyst');
+        </sql>
+        <rollback>
+            <sql>
+                truncate table employee_role
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="Colin">
+        <comment>Insert employee</comment>
+        <sql>
+            insert into employee (firstname, surname, employee_role_id) values ('Colin','But', 3);
+        </sql>
+        <rollback>
+            <sql>
+                truncate table employee;
+            </sql>
+        </rollback>
+    </changeSet>
+
+
+    <changeSet id="3" author="Colin">
+        <comment>Insert clients</comment>
+        <sql>
+            insert into client (client_name) values ('client x');
+            insert into client (client_name) values ('client y');
+            insert into client (client_name) values ('client z');
+            insert into client (client_name) values ('client a');
+            insert into client (client_name) values ('client b');
+            insert into client (client_name) values ('client c');
+        </sql>
+        <rollback>
+            <sql>
+                truncate table client;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="4" author="Colin">
+        <comment>Insert projects</comment>
+        <sql>
+            insert into project (project_title, date_started, client_id) values ('project 1', DATE('2017-06-15'), 1);
+        </sql>
+        <rollback>
+            <sql>
+                truncate table project;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="5" author="Colin">
+        <comment>Insert projects to employees</comment>
+        <sql>
+            insert into employee_project values (1, 1, DATE('2017-06-15'), null);
+        </sql>
+        <rollback>
+            <sql>
+                truncate table project;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

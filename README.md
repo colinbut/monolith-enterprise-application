@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Preamble](#preamble)
+- [Pre-requisites](#prerequisites)
 - [Uber Jar](#uber-jar)
 - [Embedded Jetty](#embedded-jetty)
 - [Database Migration](#database-migration)
@@ -16,7 +17,7 @@ like application.
 _Note, this project is not a complete application and i have no intention of making it complete, it only serves the purpose of providing a variety of specific
 demonstrations only._
 
-#### <a name="preamble"></a>Preamble
+### <a name="preamble"></a>Preamble
 
 Snowman is an fictional enterprise scale/ready employee management system (EMS). This project uses Snowman to 
 demonstrate the characteristics of a stereotypical backend enterprise application.
@@ -26,7 +27,17 @@ demonstrate the characteristics of a stereotypical backend enterprise applicatio
 Snowman exposes its functionality via REST (-like) endpoints. Essentially this is a 
 backend web service.
 
-#### <a name="uber-jar"></a>Uber Jar
+### <a name="prerequisites"></a>Pre - Requisites
+
+- Java JDK 7
+- Maven
+- MySQL
+ 
+ 
+1. Start up MySQL Server 
+2. run.sh
+
+### <a name="uber-jar"></a>Uber Jar
 
 As part of the deployment process, Application is packaged up in a "uber" runnable executable jar.
 This jar contains all dependencies copied in. And can be easily run from a command line with:
@@ -37,7 +48,7 @@ java -jar target/Snowman.jar
 
 This whole process is achieved by the [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/)
 
-#### <a name="embedded-jetty"></a>Embedded Jetty
+### <a name="embedded-jetty"></a>Embedded Jetty
 
 Rather than deploying the application in either a full blown JavaEE application server (JBoss/Wildfly, Websphere, Weblogic, Geronimo etc)
 or a Web/JSP Container (Tomcat, Jetty, UnderTow), we embed a HTTP listener into the application in the form of
@@ -46,7 +57,7 @@ or a Web/JSP Container (Tomcat, Jetty, UnderTow), we embed a HTTP listener into 
 All dependencies are bundled/packaged together in an Uber jar file so it works. This means it is therefore
 wasn't necessary required to be provided with specific JavaEE dependencies from the JavaEE platform.
 
-#### <a name="database-migration"></a>Database Migration
+### <a name="database-migration"></a>Database Migration
 
 Database updates are implemented using patches via changesets with a database migration tool in [liquibase](http://www.liquibase.org/)
 to execute them in order to 'patch' up the database.

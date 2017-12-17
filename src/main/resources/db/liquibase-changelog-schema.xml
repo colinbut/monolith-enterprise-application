@@ -8,5 +8,6 @@
 
 
     <include file="changelog/001_Create_Schema.xml" relativeToChangelogFile="true" />
+    <include file="changelog/002_Insert_Initial_Data.xml" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
