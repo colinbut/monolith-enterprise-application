@@ -9,38 +9,38 @@
 <changeSet id="1" author="Colin">
         <comment>Insert employee roles</comment>
         <sql>
-            insert into employee_role (role) values ('Development Manager');
-            insert into employee_role (role) values ('Testing Manager');
-            insert into employee_role (role) values ('Software Developer');
-            insert into employee_role (role) values ('Technical Architect');
-            insert into employee_role (role) values ('Solutions Architect');
-            insert into employee_role (role) values ('Enterprise Architect');
-            insert into employee_role (role) values ('Data Architect');
-            insert into employee_role (role) values ('Integration Architect');
-            insert into employee_role (role) values ('Systems Architect');
-            insert into employee_role (role) values ('Infrastructure Architect');
-            insert into employee_role (role) values ('Operations Architect');
-            insert into employee_role (role) values ('Frontend Architect');
-            insert into employee_role (role) values ('Build Engineer');
-            insert into employee_role (role) values ('Java Developer');
-            insert into employee_role (role) values ('Full Stack Developer');
-            insert into employee_role (role) values ('Frontend Developer');
-            insert into employee_role (role) values ('Team Lead');
-            insert into employee_role (role) values ('Operations Engineer');
-            insert into employee_role (role) values ('Systems Administrator');
-            insert into employee_role (role) values ('Linux Engineer');
-            insert into employee_role (role) values ('DevOps Engineer');
-            insert into employee_role (role) values ('Database Administrator');
-            insert into employee_role (role) values ('Test Engineer');
-            insert into employee_role (role) values ('QA');
-            insert into employee_role (role) values ('Test Automation Engineer');
-            insert into employee_role (role) values ('SDET');
-            insert into employee_role (role) values ('Developer In Test');
-            insert into employee_role (role) values ('Tech Tester');
-            insert into employee_role (role) values ('Business Analyst');
-            insert into employee_role (role) values ('Product Owner');
-            insert into employee_role (role) values ('Scrum Master');
-            insert into employee_role (role) values ('Support Analyst');
+            insert into employee_role (id, role) values (1,'Development Manager');
+            insert into employee_role (id, role) values (2,'Testing Manager');
+            insert into employee_role (id, role) values (3,'Software Developer');
+            insert into employee_role (id, role) values (4,'Technical Architect');
+            insert into employee_role (id, role) values (5,'Solutions Architect');
+            insert into employee_role (id, role) values (6,'Enterprise Architect');
+            insert into employee_role (id, role) values (7,'Data Architect');
+            insert into employee_role (id, role) values (8,'Integration Architect');
+            insert into employee_role (id, role) values (9,'Systems Architect');
+            insert into employee_role (id, role) values (10,'Infrastructure Architect');
+            insert into employee_role (id, role) values (11,'Operations Architect');
+            insert into employee_role (id, role) values (12,'Frontend Architect');
+            insert into employee_role (id, role) values (13,'Build Engineer');
+            insert into employee_role (id, role) values (14,'Java Developer');
+            insert into employee_role (id, role) values (15,'Full Stack Developer');
+            insert into employee_role (id, role) values (16,'Frontend Developer');
+            insert into employee_role (id, role) values (17,'Team Lead');
+            insert into employee_role (id, role) values (18,'Operations Engineer');
+            insert into employee_role (id, role) values (19,'Systems Administrator');
+            insert into employee_role (id, role) values (20,'Linux Engineer');
+            insert into employee_role (id, role) values (21,'DevOps Engineer');
+            insert into employee_role (id, role) values (22,'Database Administrator');
+            insert into employee_role (id, role) values (23,'Test Engineer');
+            insert into employee_role (id, role) values (24,'QA');
+            insert into employee_role (id, role) values (25,'Test Automation Engineer');
+            insert into employee_role (id, role) values (26,'SDET');
+            insert into employee_role (id, role) values (27,'Developer In Test');
+            insert into employee_role (id, role) values (28,'Tech Tester');
+            insert into employee_role (id, role) values (29,'Business Analyst');
+            insert into employee_role (id, role) values (30,'Product Owner');
+            insert into employee_role (id, role) values (31,'Scrum Master');
+            insert into employee_role (id, role) values (32,'Support Analyst');
         </sql>
         <rollback>
             <sql>
@@ -53,6 +53,9 @@
         <comment>Insert employee</comment>
         <sql>
             insert into employee (firstname, surname, employee_role_id) values ('Colin','But', 3);
+            insert into employee (firstname, surname, employee_role_id) values ('PersonA','SurnameA', 28);
+            insert into employee (firstname, surname, employee_role_id) values ('Firstname','Secondname', 24);
+            insert into employee (firstname, surname, employee_role_id) values ('Danny','Little', 18);
         </sql>
         <rollback>
             <sql>
@@ -65,12 +68,12 @@
     <changeSet id="3" author="Colin">
         <comment>Insert clients</comment>
         <sql>
-            insert into client (client_name) values ('client x');
-            insert into client (client_name) values ('client y');
-            insert into client (client_name) values ('client z');
-            insert into client (client_name) values ('client a');
-            insert into client (client_name) values ('client b');
-            insert into client (client_name) values ('client c');
+            insert into client (id, client_name) values (1, 'client x');
+            insert into client (id, client_name) values (2, 'client y');
+            insert into client (id, client_name) values (3, 'client z');
+            insert into client (id, client_name) values (4, 'client a');
+            insert into client (id, client_name) values (5, 'client b');
+            insert into client (id, client_name) values (6, 'client c');
         </sql>
         <rollback>
             <sql>
@@ -82,7 +85,11 @@
     <changeSet id="4" author="Colin">
         <comment>Insert projects</comment>
         <sql>
-            insert into project (project_title, date_started, client_id) values ('project 1', DATE('2017-06-15'), 1);
+            insert into project (project_title, date_started, client_id) values ('project 1', DATE('2017-03-15'), 1);
+            insert into project (project_title, date_started, client_id) values ('government project 1', DATE('2016-02-15'), 2);
+            insert into project (project_title, date_started, date_ended, client_id) values ('financial project', DATE('2011-08-15'), DATE('2014-09-03'), 3);
+            insert into project (project_title, date_started, client_id) values ('e-commerce project', DATE('2015-12-15'), 4);
+            insert into project (project_title, date_started, client_id) values ('Project X', DATE('2017-06-15'), 5);
         </sql>
         <rollback>
             <sql>
@@ -94,7 +101,11 @@
     <changeSet id="5" author="Colin">
         <comment>Insert projects to employees</comment>
         <sql>
-            insert into employee_project values (1, 1, DATE('2017-06-15'), null);
+            insert into employee_project values (1, 3, DATE('2011-08-31'), DATE('2013-06-15'));
+            insert into employee_project values (2, 2, DATE('2017-06-15'), null);
+            insert into employee_project values (3, 3, DATE('2017-06-15'), null);
+            insert into employee_project values (4, 4, DATE('2017-06-15'), null);
+            insert into employee_project values (1, 5, DATE('2017-06-15'), null);
         </sql>
         <rollback>
             <sql>

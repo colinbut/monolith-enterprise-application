@@ -11,7 +11,7 @@
         <sql>
 
             create table employee_role (
-                id INT PRIMARY KEY AUTO_INCREMENT,
+                id INT PRIMARY KEY,
                 role VARCHAR(30) NOT NULL
             );
 
@@ -24,7 +24,7 @@
             );
 
             create table client (
-                id INT PRIMARY KEY AUTO_INCREMENT,
+                id INT PRIMARY KEY,
                 client_name VARCHAR(30) NOT NULL
             );
 
