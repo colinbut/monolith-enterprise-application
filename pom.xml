@@ -26,6 +26,9 @@
         <derby.version>10.11.1.1</derby.version>
         <mysql.version>6.0.6</mysql.version>
         <slf4j.api.version>1.7.25</slf4j.api.version>
+        <hibernate.core.version>4.3.10.Final</hibernate.core.version>
+        <hibernate.entitymanager.version>4.3.10.Final</hibernate.entitymanager.version>
+        <hibernate.c3po.version>4.3.10.Final</hibernate.c3po.version>
     </properties>
 
     <dependencies>
@@ -156,6 +159,24 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.entitymanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.c3po.version}</version>
         </dependency>
 
     </dependencies>
