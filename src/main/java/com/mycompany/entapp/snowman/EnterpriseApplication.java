@@ -10,12 +10,17 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.webapp.WebAppContext;
 
+import java.net.URL;
+
 public class EnterpriseApplication {
 
     private static final int DEFAULT_PORT = 8090;
 
+    private EnterpriseApplication() {
+    }
+
     public static void main(String[] args) throws Exception {
-        
+
         final Server server = new Server();
 
         final ServerConnector serverConnector = new ServerConnector(server);
@@ -25,8 +30,8 @@ public class EnterpriseApplication {
         server.setConnectors(new Connector[]{serverConnector});
 
         WebAppContext webAppContext = new WebAppContext();
-        webAppContext.setDescriptor(EnterpriseApplication.class.getClassLoader().getResource("webapp/WEB-INF/web.xml").toString());
-        webAppContext.setResourceBase(EnterpriseApplication.class.getClassLoader().getResource("webapp").toString());
+        webAppContext.setDescriptor(getResource("webapp/WEB-INF/web.xml"));
+        webAppContext.setResourceBase(getResource("webapp"));
         webAppContext.setContextPath("/");
         webAppContext.setParentLoaderPriority(true);
 
@@ -50,6 +55,14 @@ public class EnterpriseApplication {
 
         server.join();
 
+    }
+
+    private static String getResource(String resourceName) {
+        URL resourceURL = EnterpriseApplication.class.getClassLoader().getResource(resourceName);
+        if (resourceURL == null) {
+            throw new RuntimeException("Unable to fetch specified resource: " + resourceName);
+        }
+        return resourceURL.toString();
     }
 
     private static int resolvePort() {
