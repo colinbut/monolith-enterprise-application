@@ -11,12 +11,16 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Project {
@@ -37,6 +41,9 @@ public class Project {
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
+    private Set<Employee> employees = new HashSet<>(0);
 
     public int getId() {
         return id;

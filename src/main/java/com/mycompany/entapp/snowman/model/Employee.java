@@ -11,11 +11,17 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Employee {
@@ -33,6 +39,17 @@ public class Employee {
     @OneToOne
     @JoinColumn(name = "employee_role_id", nullable = true) // should change this to false
     private EmployeeRole role;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "employee_project",
+        joinColumns = {
+            @JoinColumn(name = "employee_id", nullable = true, updatable = false)
+        },
+        inverseJoinColumns = {
+            @JoinColumn(name = "project_id", nullable = true, updatable = false)
+        }
+    )
+    private Set<Project> projects = new HashSet<>(0);
 
     public int getId() {
         return id;
