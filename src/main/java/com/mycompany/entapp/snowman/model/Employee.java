@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -30,6 +31,7 @@ public class Employee {
     private String surname;
 
     @OneToOne
+    @JoinColumn(name = "employee_role_id", nullable = true) // should change this to false
     private EmployeeRole role;
 
     public int getId() {

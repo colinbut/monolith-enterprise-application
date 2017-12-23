@@ -11,6 +11,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -26,7 +27,7 @@ public class Client {
     @Column(name = "client_name", nullable = false)
     private String clientName;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     private Set<Project> project;
 
     public int getId() {
