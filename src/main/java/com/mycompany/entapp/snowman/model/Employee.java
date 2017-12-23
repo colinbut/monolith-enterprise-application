@@ -40,15 +40,15 @@ public class Employee {
     @JoinColumn(name = "employee_role_id", nullable = true) // should change this to false
     private EmployeeRole role;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "employee_project",
-        joinColumns = {
-            @JoinColumn(name = "employee_id", nullable = true, updatable = false)
-        },
-        inverseJoinColumns = {
-            @JoinColumn(name = "project_id", nullable = true, updatable = false)
-        }
-    )
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "employee_project",
+//        joinColumns = {
+//            @JoinColumn(name = "employee_id", nullable = true, updatable = false)
+//        },
+//        inverseJoinColumns = {
+//            @JoinColumn(name = "project_id", nullable = true, updatable = false)
+//        }
+//    )
     private Set<Project> projects = new HashSet<>(0);
 
     public int getId() {
@@ -81,6 +81,14 @@ public class Employee {
 
     public void setRole(EmployeeRole role) {
         this.role = role;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 
     @Override

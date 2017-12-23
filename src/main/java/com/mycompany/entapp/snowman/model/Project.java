@@ -42,7 +42,7 @@ public class Project {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
+    //@ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
     private Set<Employee> employees = new HashSet<>(0);
 
     public int getId() {
@@ -83,6 +83,14 @@ public class Project {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override
