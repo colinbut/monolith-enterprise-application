@@ -54,9 +54,4 @@ public class ApplicationInfoDaoImpl implements ApplicationInfoDao {
 
         return null;
     }
-
-    @Override
-    public void setApplicationInfo(AppInfo appInfo) {
-
-    }
 }

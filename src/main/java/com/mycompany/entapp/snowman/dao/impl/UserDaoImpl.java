@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-// TODO change this with JPA - Hibernate (for ORM)
 public class UserDaoImpl implements UserDao {
 
     private Map<Integer, User> userMap = new HashMap<>();
