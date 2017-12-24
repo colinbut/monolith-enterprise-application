@@ -44,11 +44,16 @@ public class ApplicationInfoDaoImpl implements ApplicationInfoDao {
         } catch (ClassNotFoundException | SQLException e) {
             LOG.error("{}", e);
         } finally {
-            if (connection != null) {
-                connection.close();
-            }
-            if (stmt != null) {
-                stmt.close();
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                LOG.error("{}", e);
             }
          }
 
