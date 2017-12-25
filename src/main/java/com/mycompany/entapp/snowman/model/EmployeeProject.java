@@ -15,11 +15,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "employee_project")
-public class EmployeeProject {
+public class EmployeeProject implements Serializable {
 
     @Id
     @ManyToOne

@@ -19,6 +19,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import java.util.HashSet;
 import java.util.Set;
@@ -49,7 +50,10 @@ public class Employee {
 //            @JoinColumn(name = "project_id", nullable = true, updatable = false)
 //        }
 //    )
-    private Set<Project> projects = new HashSet<>(0);
+//    private Set<Project> projects = new HashSet<>(0);
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
+    private Set<EmployeeProject> projects = new HashSet<>(0);
 
     public int getId() {
         return id;
@@ -83,11 +87,19 @@ public class Employee {
         this.role = role;
     }
 
-    public Set<Project> getProjects() {
+//    public Set<Project> getProjects() {
+//        return projects;
+//    }
+//
+//    public void setProjects(Set<Project> projects) {
+//        this.projects = projects;
+//    }
+
+    public Set<EmployeeProject> getProjects() {
         return projects;
     }
 
-    public void setProjects(Set<Project> projects) {
+    public void setProjects(Set<EmployeeProject> projects) {
         this.projects = projects;
     }
 

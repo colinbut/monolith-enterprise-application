@@ -18,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -43,7 +44,10 @@ public class Project {
     private Client client;
 
     //@ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
-    private Set<Employee> employees = new HashSet<>(0);
+    //private Set<Employee> employees = new HashSet<>(0);
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
+    private Set<EmployeeProject> employeeProjects = new HashSet<>(0);
 
     public int getId() {
         return id;
@@ -85,12 +89,20 @@ public class Project {
         this.client = client;
     }
 
-    public Set<Employee> getEmployees() {
-        return employees;
+//    public Set<Employee> getEmployees() {
+//        return employees;
+//    }
+//
+//    public void setEmployees(Set<Employee> employees) {
+//        this.employees = employees;
+//    }
+
+    public Set<EmployeeProject> getEmployeeProjects() {
+        return employeeProjects;
     }
 
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
+    public void setEmployeeProjects(Set<EmployeeProject> employeeProjects) {
+        this.employeeProjects = employeeProjects;
     }
 
     @Override
