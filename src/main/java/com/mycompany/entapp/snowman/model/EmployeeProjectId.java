@@ -11,9 +11,10 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @Embeddable
-public class EmployeeProjectId {
+public class EmployeeProjectId implements Serializable {
 
     @ManyToOne
     private Employee employee;
