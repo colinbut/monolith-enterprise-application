@@ -32,7 +32,7 @@ public class ApplicationInfoDaoImpl implements ApplicationInfoDao {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/snowman", "username", "password");
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECY * FROM app_info");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM app_info");
 
             while(rs.next()) {
                 AppInfo appInfo = new AppInfo();
