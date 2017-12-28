@@ -6,9 +6,17 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
-    <include file="changelog/001_Create_Schema.xml" relativeToChangelogFile="true" />
-    <include file="changelog/002_Insert_Initial_Data.xml" relativeToChangelogFile="true" />
-    <include file="changelog/003_Insert_App_Info.xml" relativeToChangelogFile="true" />
+    <changeSet id="1" author="Colin">
+        <comment>Insert employee roles</comment>
+        <insert tableName="app_info">
+            <column name="id" type="INT" value="1"/>
+            <column name="version" type="VARCHAR(20)" value="1.0.0"/>
+        </insert>
+        <rollback>
+            <sql>
+                truncate table app_info
+            </sql>
+        </rollback>
+    </changeSet>
 
 </databaseChangeLog>
