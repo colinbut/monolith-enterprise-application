@@ -5,6 +5,7 @@
  */
 package com.mycompany.entapp.snowman.dao.impl;
 
+import com.mycompany.entapp.snowman.dao.AbstractDao;
 import com.mycompany.entapp.snowman.dao.ApplicationInfoDao;
 import com.mycompany.entapp.snowman.model.AppInfo;
 import org.slf4j.Logger;
@@ -12,15 +13,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 @Repository
-public class ApplicationInfoDaoImpl implements ApplicationInfoDao {
+public class ApplicationInfoDaoImpl extends AbstractDao implements ApplicationInfoDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationInfoDaoImpl.class);
+
+    private static final String SELECT_FROM_APP_INFO_QUERY = "SELECT * FROM app_info";
 
     @Override
     public AppInfo loadApplicationInfo() {
@@ -29,10 +31,10 @@ public class ApplicationInfoDaoImpl implements ApplicationInfoDao {
         Connection connection = null;
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/snowman", "username", "password");
+            setupDBDriver();
+            connection = getConnection();
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM app_info");
+            ResultSet rs = stmt.executeQuery(SELECT_FROM_APP_INFO_QUERY);
 
             while(rs.next()) {
                 AppInfo appInfo = new AppInfo();
@@ -41,7 +43,7 @@ public class ApplicationInfoDaoImpl implements ApplicationInfoDao {
                 return appInfo;
             }
 
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             LOG.error("{}", e);
         } finally {
             try {
