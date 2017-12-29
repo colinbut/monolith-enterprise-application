@@ -19,6 +19,10 @@ public abstract class AbstractDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(AbstractDao.class);
 
+    private static final String DATABASE_CONNECTION_URL = "jdbc:mysql://localhost:3306/snowman";
+    private static final String DATABASE_USERNAME = "username";
+    private static final String DATABASE_PASSWORD = "password";
+
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -38,7 +42,7 @@ public abstract class AbstractDao {
     protected Connection getConnection() {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/snowman", "username", "password");
+            connection = DriverManager.getConnection(DATABASE_CONNECTION_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
         } catch (SQLException e) {
             LOG.error("{}", e); // TODO should throw a business exception back up
         }
