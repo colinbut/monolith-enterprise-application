@@ -5,7 +5,7 @@
  */
 package com.mycompany.entapp.snowman.dao.impl;
 
-import com.mycompany.entapp.snowman.dao.AbstractDao;
+import com.mycompany.entapp.snowman.dao.AbstractJDBCDao;
 import com.mycompany.entapp.snowman.dao.ApplicationInfoDao;
 import com.mycompany.entapp.snowman.model.AppInfo;
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 @Repository
-public class ApplicationInfoDaoImpl extends AbstractDao implements ApplicationInfoDao {
+public class ApplicationInfoDaoImpl extends AbstractJDBCDao implements ApplicationInfoDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationInfoDaoImpl.class);
 
