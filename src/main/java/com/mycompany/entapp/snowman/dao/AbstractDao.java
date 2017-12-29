@@ -19,7 +19,10 @@ public abstract class AbstractDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(AbstractDao.class);
 
-    private static final String DATABASE_CONNECTION_URL = "jdbc:mysql://localhost:3306/snowman";
+    private static final String DB_HOST = "localhost";
+    private static final String DB_PORT = "3306";
+
+    private static final String DATABASE_CONNECTION_URL = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/snowman";
     private static final String DATABASE_USERNAME = "username";
     private static final String DATABASE_PASSWORD = "password";
 
