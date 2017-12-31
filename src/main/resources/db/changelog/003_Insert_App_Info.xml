@@ -7,7 +7,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <changeSet id="1" author="Colin">
-        <comment>Insert employee roles</comment>
+        <comment>Insert application information</comment>
         <insert tableName="app_info">
             <column name="id" type="INT" value="1"/>
             <column name="version" type="VARCHAR(20)" value="1.0.0"/>
