@@ -10,5 +10,6 @@
     <include file="changelog/001_Create_Schema.xml" relativeToChangelogFile="true" />
     <include file="changelog/002_Insert_Initial_Data.xml" relativeToChangelogFile="true" />
     <include file="changelog/003_Insert_App_Info.xml" relativeToChangelogFile="true" />
+    <include file="changelog/004_Insert_Dummy_Users.xml" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
