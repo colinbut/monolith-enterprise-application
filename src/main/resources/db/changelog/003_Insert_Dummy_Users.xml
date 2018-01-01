@@ -10,9 +10,9 @@
         <comment>Insert dummy users</comment>
         <sql>
             insert into user values (1, 'username', 'password', 'username@email.com', 'user first name', 'user second name');
-            insert into user values (1, 'admin', 'admin', 'admin@email.com', 'admin first name', 'admin second name');
-            insert into user values (1, 'test', 'test', 'test@email.com', 'test first name', 'test second name');
-            insert into user values (1, 'dev', 'dev', 'dev@email.com', 'dev first name', 'dev second name');
+            insert into user values (2, 'admin', 'admin', 'admin@email.com', 'admin first name', 'admin second name');
+            insert into user values (3, 'test', 'test', 'test@email.com', 'test first name', 'test second name');
+            insert into user values (4, 'dev', 'dev', 'dev@email.com', 'dev first name', 'dev second name');
         </sql>
         <rollback>
             <sql>
