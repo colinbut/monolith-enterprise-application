@@ -46,6 +46,14 @@ public class Client {
         this.clientName = clientName;
     }
 
+    public Set<Project> getProject() {
+        return project;
+    }
+
+    public void setProject(Set<Project> project) {
+        this.project = project;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
