@@ -29,6 +29,7 @@
         <hibernate.core.version>4.3.10.Final</hibernate.core.version>
         <hibernate.entitymanager.version>4.3.10.Final</hibernate.entitymanager.version>
         <hibernate.c3po.version>4.3.10.Final</hibernate.c3po.version>
+        <joda.time.version>2.9.9</joda.time.version>
     </properties>
 
     <dependencies>
@@ -184,6 +185,13 @@
             <artifactId>hibernate-c3p0</artifactId>
             <version>${hibernate.c3po.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda.time.version}</version>
+        </dependency>
+
 
     </dependencies>
 
