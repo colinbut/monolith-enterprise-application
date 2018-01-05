@@ -10,6 +10,7 @@ import com.mycompany.entapp.snowman.infrastructure.rest.resources.ClientResource
 import com.mycompany.entapp.snowman.domain.model.Client;
 import com.mycompany.entapp.snowman.domain.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +25,26 @@ public class ClientRestEndpoint {
     private ClientService clientService;
 
     @RequestMapping(value = "/{clientId}", method = RequestMethod.GET)
-    public void getClientInfo(@PathVariable("clientId") Integer clientId) {
-        clientService.getClient(clientId);
+    public ResponseEntity<ClientResource> getClientInfo(@PathVariable("clientId") Integer clientId) {
+        Client client = clientService.getClient(clientId);
+        ClientResource clientResource = ClientResourceMapper.mapToClientResource(client);
+        return ResponseEntity.ok(clientResource);
     }
 
-    @RequestMapping(value = "/{clientId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
     public void createClientInfo(@RequestBody ClientResource clientResource) {
         Client client = ClientResourceMapper.mapToClient(clientResource);
         clientService.createClient(client);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public void updateClientInfo(@RequestBody ClientResource clientResource) {
+        Client client = ClientResourceMapper.mapToClient(clientResource);
+        clientService.updateClient(client);
+    }
+
+    @RequestMapping(value = "/{clientId}", method = RequestMethod.DELETE)
+    public void deleteClientInfo(@PathVariable("clientId") Integer clientId) {
+        clientService.deleteClient(clientId);
     }
 }

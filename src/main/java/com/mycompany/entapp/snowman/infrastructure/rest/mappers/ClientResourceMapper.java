@@ -21,6 +21,9 @@ public final class ClientResourceMapper {
     }
 
     public static ClientResource mapToClientResource(Client client) {
-        return null;
+        ClientResource clientResource = new ClientResource();
+        clientResource.setClientId(client.getId());
+        clientResource.setClientName(client.getClientName());
+        return clientResource;
     }
 }

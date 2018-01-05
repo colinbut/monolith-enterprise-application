@@ -7,13 +7,15 @@ package com.mycompany.entapp.snowman.infrastructure.rest.mappers;
 
 import com.mycompany.entapp.snowman.infrastructure.rest.resources.ProjectResource;
 import com.mycompany.entapp.snowman.domain.model.Project;
-import junit.framework.TestCase;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.util.Date;
 
-public class ProjectResourceMapperUTest extends TestCase {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+public class ProjectResourceMapperUTest {
 
     @Test
     public void testMapToProject() throws Exception {
