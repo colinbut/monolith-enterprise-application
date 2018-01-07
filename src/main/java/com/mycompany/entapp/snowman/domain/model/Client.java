@@ -28,7 +28,7 @@ public class Client {
     private String clientName;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    private Set<Project> project;
+    private Set<Project> projects;
 
     public int getId() {
         return id;
@@ -47,11 +47,11 @@ public class Client {
     }
 
     public Set<Project> getProject() {
-        return project;
+        return projects;
     }
 
-    public void setProject(Set<Project> project) {
-        this.project = project;
+    public void setProject(Set<Project> projects) {
+        this.projects = projects;
     }
 
     @Override

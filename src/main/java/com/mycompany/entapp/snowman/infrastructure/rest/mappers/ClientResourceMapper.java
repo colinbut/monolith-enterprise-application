@@ -15,6 +15,7 @@ public final class ClientResourceMapper {
 
     public static Client mapToClient(ClientResource clientResource) {
         Client client = new Client();
+        client.setId(clientResource.getClientId());
         client.setClientName(clientResource.getClientName());
         client.setProject(ProjectResourceMapper.mapToProjects(clientResource.getProjects()));
         return client;
@@ -24,6 +25,7 @@ public final class ClientResourceMapper {
         ClientResource clientResource = new ClientResource();
         clientResource.setClientId(client.getId());
         clientResource.setClientName(client.getClientName());
+        clientResource.setProjects(ProjectResourceMapper.mapToProjectResources(client.getProject()));
         return clientResource;
     }
 }

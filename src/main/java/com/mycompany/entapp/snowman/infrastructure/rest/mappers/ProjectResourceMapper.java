@@ -8,6 +8,7 @@ package com.mycompany.entapp.snowman.infrastructure.rest.mappers;
 import com.mycompany.entapp.snowman.infrastructure.rest.resources.ProjectResource;
 import com.mycompany.entapp.snowman.domain.model.Project;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,5 +43,13 @@ public final class ProjectResourceMapper {
             projects.add(mapToProject(projectResource));
         }
         return projects;
+    }
+
+    public static List<ProjectResource> mapToProjectResources(Set<Project> projects) {
+        List<ProjectResource> projectResources = new ArrayList<>();
+        for (Project project : projects) {
+            projectResources.add(mapToProjectResource(project));
+        }
+        return projectResources;
     }
 }
