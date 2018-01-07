@@ -15,7 +15,7 @@ public class ClientDaoImpl extends AbstractHibernateDao implements ClientDao {
 
     @Override
     public Client getClient(int clientId) {
-        return null;
+        return (Client) getCurrentSession().get(Client.class, clientId);
     }
 
     @Override

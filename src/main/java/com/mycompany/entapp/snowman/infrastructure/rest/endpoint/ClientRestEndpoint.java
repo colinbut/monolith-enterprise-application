@@ -5,6 +5,7 @@
  */
 package com.mycompany.entapp.snowman.infrastructure.rest.endpoint;
 
+import com.mycompany.entapp.snowman.domain.exception.SnowmanException;
 import com.mycompany.entapp.snowman.infrastructure.rest.mappers.ClientResourceMapper;
 import com.mycompany.entapp.snowman.infrastructure.rest.resources.ClientResource;
 import com.mycompany.entapp.snowman.domain.model.Client;
@@ -34,13 +35,21 @@ public class ClientRestEndpoint {
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public void createClientInfo(@RequestBody ClientResource clientResource) {
         Client client = ClientResourceMapper.mapToClient(clientResource);
-        clientService.createClient(client);
+        try {
+            clientService.createClient(client);
+        } catch (SnowmanException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public void updateClientInfo(@RequestBody ClientResource clientResource) {
         Client client = ClientResourceMapper.mapToClient(clientResource);
-        clientService.updateClient(client);
+        try {
+            clientService.updateClient(client);
+        } catch (SnowmanException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @RequestMapping(value = "/{clientId}", method = RequestMethod.DELETE)
