@@ -4,6 +4,11 @@
 
 - [Preamble](#preamble)
 - [Pre-requisites](#prerequisites)
+- [Software Architecture](#architecture)
+- [Data Access](#data-access)
+    - [Java - JDBC](#jdbc)
+    - [Spring - JdbcTemplate](#jdbctemplate)
+    - [Object Relational Mapping](#orm)
 - [Uber Jar](#uber-jar)
 - [Embedded Jetty](#embedded-jetty)
 - [Database Migration](#database-migration)
@@ -36,6 +41,34 @@ backend web service.
  
 1. Start up MySQL Server 
 2. run.sh
+
+### <a name="architecture"></a>Software Architecture
+
+Instead of using a Layered Architecture where you commonly have 3 layers with one directional flow, this project showcase
+a Hexagonal Architecture (Ports and Adapters). The core domain comprises of the main business logic would be the inner and
+the application infrastructure (Database, Message Queues, REST endpoints) would be the outer layers. 
+
+### <a name="data-access"></a>Data Access
+
+Rather than having a logical Data Access Layer within a 3 layered architecture, in a hexagonal architecture data access are
+in an outer layer. 
+
+#### <a name="jdbc"></a>Java - JDBC
+
+One way of accessing the db from the application is using raw JDBC. This is quite low level. See ApplicationInfoDaoImpl.java
+
+#### <a name="spring-jdbctemplate"></a>Spring - JDBC
+
+The application framework in Spring provides a level of abstraction of data access by giving the usage of JdbcTemplate. This
+class from Spring implements the GoF Template design pattern. By using this class, it relieves away a lot of the 'pain' of writing 
+so called 'boilerplate' code in setting up db connections, exception handling etc. See UserDaoImpl.java
+
+#### <a name="orm"></a>Object-Relational-Mapping(ORM)
+
+Object Relational Mapping (ORM) is the mapping of relational database tables to objects and vice-versa. 
+We use JPA standard along the the Hibernate implementation to achieve this. Model objects (Entities) are part of thus 'anemic'
+data model. The DAOs encapsulates Hibernate EntityManager to do the basic CRUD operations.
+
 
 ### <a name="uber-jar"></a>Uber Jar
 
@@ -110,7 +143,7 @@ was chosen as demonstration in favour of running Cluster Servers to achieve Clus
 
 See [Scalability](#scalability) for more info.
 
-### <a name="resiliency"></a>Resiliency
+### <a name="resiliency"></a>Resiliency / Fault Tolerance
 
 1. Failover and Recovery
 2. Disaster and Recovery
