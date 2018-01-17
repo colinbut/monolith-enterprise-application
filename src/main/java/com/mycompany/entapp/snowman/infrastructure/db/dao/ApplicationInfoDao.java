@@ -7,6 +7,8 @@ package com.mycompany.entapp.snowman.infrastructure.db.dao;
 
 import com.mycompany.entapp.snowman.domain.model.AppInfo;
 
+import java.util.List;
+
 public interface ApplicationInfoDao {
-    AppInfo loadApplicationInfo();
+    List<AppInfo> loadApplicationInfos();
 }

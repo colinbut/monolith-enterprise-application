@@ -16,6 +16,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class ApplicationInfoDaoImpl extends AbstractJDBCDao implements ApplicationInfoDao {
@@ -25,7 +27,9 @@ public class ApplicationInfoDaoImpl extends AbstractJDBCDao implements Applicati
     private static final String SELECT_FROM_APP_INFO_QUERY = "SELECT * FROM app_info";
 
     @Override
-    public AppInfo loadApplicationInfo() {
+    public List<AppInfo> loadApplicationInfos() {
+
+        List<AppInfo> appInfos = new ArrayList<>();
 
         Statement stmt = null;
         Connection connection = null;
@@ -40,7 +44,7 @@ public class ApplicationInfoDaoImpl extends AbstractJDBCDao implements Applicati
                 AppInfo appInfo = new AppInfo();
                 appInfo.setId(rs.getInt("id"));
                 appInfo.setVersion(rs.getString("version"));
-                return appInfo;
+                appInfos.add(appInfo);
             }
 
         } catch (SQLException e) {
@@ -59,6 +63,6 @@ public class ApplicationInfoDaoImpl extends AbstractJDBCDao implements Applicati
             }
          }
 
-        return null;
+        return appInfos;
     }
 }
