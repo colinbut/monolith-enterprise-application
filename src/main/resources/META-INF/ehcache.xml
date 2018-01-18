@@ -6,7 +6,7 @@
 
     <diskStore path="java.io.tmpdir" />
 
-    <cache name="movieFindCache"
+    <cache name="clientFindCache"
            maxEntriesLocalHeap="10000"
            maxEntriesLocalDisk="1000"
            eternal="false"
