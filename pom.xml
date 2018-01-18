@@ -212,6 +212,12 @@
             <version>2.9.0</version>
         </dependency>
 
+        <!-- Support for Ehcache and others -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 
     </dependencies>
 
