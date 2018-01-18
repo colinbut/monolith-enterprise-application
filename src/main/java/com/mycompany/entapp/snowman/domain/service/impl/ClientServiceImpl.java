@@ -7,8 +7,8 @@ package com.mycompany.entapp.snowman.domain.service.impl;
 
 import com.mycompany.entapp.snowman.domain.exception.SnowmanException;
 import com.mycompany.entapp.snowman.domain.model.Client;
+import com.mycompany.entapp.snowman.domain.repository.ClientRepository;
 import com.mycompany.entapp.snowman.domain.service.ClientService;
-import com.mycompany.entapp.snowman.infrastructure.db.dao.ClientDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +20,11 @@ public class ClientServiceImpl implements ClientService {
     private static final Logger LOG = LoggerFactory.getLogger(ClientServiceImpl.class);
 
     @Autowired
-    private ClientDao clientDao;
+    private ClientRepository clientRepository;
 
     @Override
     public Client getClient(int clientId) {
-        Client client = clientDao.getClient(clientId);
+        Client client = clientRepository.getClient(clientId);
 
         LOG.info("Retrieved client: {}", client);
 
@@ -40,7 +40,7 @@ public class ClientServiceImpl implements ClientService {
             throw new SnowmanException("Client already exists");
         }
 
-        clientDao.saveClient(client);
+        clientRepository.createClient(client);
     }
 
     @Override
@@ -52,11 +52,11 @@ public class ClientServiceImpl implements ClientService {
             throw new SnowmanException("Client doesn't exists");
         }
 
-        clientDao.saveClient(client);
+        clientRepository.updateClient(client);
     }
 
     @Override
     public void deleteClient(int clientId) {
-        clientDao.removeClient(clientId);
+        clientRepository.deleteClient(clientId);
     }
 }

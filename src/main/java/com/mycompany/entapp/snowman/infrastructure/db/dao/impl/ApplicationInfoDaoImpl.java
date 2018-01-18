@@ -29,6 +29,8 @@ public class ApplicationInfoDaoImpl extends AbstractJDBCDao implements Applicati
     @Override
     public List<AppInfo> loadApplicationInfos() {
 
+        LOG.info("Loading Application Infos from the database...");
+
         List<AppInfo> appInfos = new ArrayList<>();
 
         Statement stmt = null;
