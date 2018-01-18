@@ -5,8 +5,10 @@
  */
 package com.mycompany.entapp.snowman.infrastructure.rest.endpoint;
 
-import com.mycompany.entapp.snowman.domain.model.AppInfo;
+import com.mycompany.entapp.snowman.domain.exception.BusinessException;
 import com.mycompany.entapp.snowman.domain.service.ApplicationInfoService;
+import com.mycompany.entapp.snowman.infrastructure.rest.mappers.AppInfoResourceMapper;
+import com.mycompany.entapp.snowman.infrastructure.rest.resources.AppInfoResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,12 @@ public class AppInfoRestEndpoint {
     private ApplicationInfoService applicationInfoService;
 
     @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public ResponseEntity<AppInfo> getApplicationInformation() {
-        return ResponseEntity.ok(applicationInfoService.getAppInfo());
+    public ResponseEntity<AppInfoResource> getApplicationInformation() {
+        try {
+            AppInfoResource appInfoResource = AppInfoResourceMapper.mapAppInfoToResource(applicationInfoService.getAppInfo());
+            return ResponseEntity.ok(appInfoResource);
+        } catch (BusinessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
