@@ -13,6 +13,7 @@
         <junit.version>4.12</junit.version>
         <java.version>1.7</java.version>
         <mockito.version>1.10.19</mockito.version>
+        <powermock.version>1.7.3</powermock.version>
         <jetty.version>9.4.3.v20170317</jetty.version>
         <jaxrs.version>2.0</jaxrs.version>
         <bean.validation.version>2.0.0.Final</bean.validation.version>
@@ -30,6 +31,7 @@
         <hibernate.entitymanager.version>4.3.10.Final</hibernate.entitymanager.version>
         <hibernate.c3po.version>4.3.10.Final</hibernate.c3po.version>
         <joda.time.version>2.9.9</joda.time.version>
+        <ehcache.version>2.9.0</ehcache.version>
     </properties>
 
     <dependencies>
@@ -111,14 +113,14 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito</artifactId>
-            <version>1.7.3</version>
+            <version>${powermock.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-junit4</artifactId>
-            <version>1.7.3</version>
+            <version>${powermock.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -209,7 +211,7 @@
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
-            <version>2.9.0</version>
+            <version>${ehcache.version}</version>
         </dependency>
 
         <!-- Support for Ehcache and others -->
