@@ -32,6 +32,7 @@
         <hibernate.c3po.version>4.3.10.Final</hibernate.c3po.version>
         <joda.time.version>2.9.9</joda.time.version>
         <ehcache.version>2.9.0</ehcache.version>
+        <activemq-spring.version>5.10.0</activemq-spring.version>
     </properties>
 
     <dependencies>
@@ -225,6 +226,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-spring</artifactId>
+            <version>${activemq-spring.version}</version>
         </dependency>
 
     </dependencies>
