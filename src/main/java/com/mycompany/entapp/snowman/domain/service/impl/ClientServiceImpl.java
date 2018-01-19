@@ -56,7 +56,15 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void deleteClient(int clientId) {
+    public void deleteClient(int clientId) throws SnowmanException {
+
+        LOG.info("Deleting client with id {}", clientId);
+
+        if (getClient(clientId) == null) {
+            LOG.error("Trying to delete a client with id {} that doesn't exist", clientId);
+            throw new SnowmanException("Client doesn't exists");
+        }
+
         clientRepository.deleteClient(clientId);
     }
 }

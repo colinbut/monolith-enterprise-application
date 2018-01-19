@@ -16,6 +16,6 @@ public interface ClientService {
 
     void updateClient(Client client) throws SnowmanException;
 
-    void deleteClient(int clientId);
+    void deleteClient(int clientId) throws SnowmanException;
 
 }

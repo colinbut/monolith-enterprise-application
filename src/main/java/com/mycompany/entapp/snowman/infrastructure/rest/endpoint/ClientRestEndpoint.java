@@ -54,6 +54,10 @@ public class ClientRestEndpoint {
 
     @RequestMapping(value = "/{clientId}", method = RequestMethod.DELETE)
     public void deleteClientInfo(@PathVariable("clientId") Integer clientId) {
-        clientService.deleteClient(clientId);
+        try {
+            clientService.deleteClient(clientId);
+        } catch (SnowmanException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
