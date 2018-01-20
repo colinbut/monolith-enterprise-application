@@ -43,6 +43,6 @@
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="defaultDestination" ref="notificationTopic"/>
     </bean>
-    <!-- End: Queue allows sending Employee info to Payroll System (external system) to update payroll -->
-    
+    <!-- End: Topic allows notifications of new Employee, Project, Client info to interested 3rd party integrated systems within the same company -->
+
 </beans>

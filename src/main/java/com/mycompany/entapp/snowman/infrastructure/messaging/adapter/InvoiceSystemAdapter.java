@@ -31,7 +31,7 @@ public class InvoiceSystemAdapter implements InvoiceSystemPort {
 
     @Override
     public void sendProjectInfo(final ClientDTO clientDTO) {
-        LOGGER.info("Sending project info to Invoice System");
+        LOGGER.info("Sending client info to Invoice System: {}", clientDTO);
         jmsTemplate.send(new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
