@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <constructor-arg index="0" value="tcp://localhost:61616"/>
+    </bean>
+
+    <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <constructor-arg ref="amqConnectionFactory"/>
+    </bean>
+
+    <!-- Begin: Queue allows sending project belonging to Client info to Invoice System (external system) -->
+    <bean id="invoiceSystemQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="invoice-system-queue"/>
+    </bean>
+
+    <bean id="invoiceJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestination" ref="invoiceSystemQueue"/>
+    </bean>
+    <!-- End: Queue allows sending project belonging to Client info to Invoice System (external system) -->
+
+    <!-- Begin: Queue allows sending Employee info to Payroll System (external system) to update payroll -->
+    <bean id="payrollSystemQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="payroll-system-queue"/>
+    </bean>
+
+    <bean id="payrollJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestination" ref="payrollSystemQueue"/>
+    </bean>
+    <!-- End: Queue allows sending Employee info to Payroll System (external system) to update payroll -->
+
+    <!-- Begin: Topic allows notifications of new Employee, Project, Client info to interested 3rd party integrated systems -->
+    <bean id="notificationTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="notification-topic"/>
+    </bean>
+
+    <bean id="notificationJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestination" ref="notificationTopic"/>
+    </bean>
+    <!-- End: Queue allows sending Employee info to Payroll System (external system) to update payroll -->
+    
+</beans>

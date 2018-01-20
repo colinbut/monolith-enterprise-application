@@ -48,7 +48,7 @@ public class ClientResourceMapperUTest {
 
         assertEquals(clientId, client.getId());
         assertEquals(clientName, client.getClientName());
-        assertEquals(projects, client.getProject());
+        assertEquals(projects, client.getProjects());
     }
 
     @Test

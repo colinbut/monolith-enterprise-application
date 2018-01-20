@@ -1,41 +1,28 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2017 Colin But. All rights reserved.
+ * | Copyright © 2018 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
-package com.mycompany.entapp.snowman.domain.model;
+package com.mycompany.entapp.snowman.infrastructure.messaging.dto;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import java.io.Serializable;
 import java.util.Set;
 
-@Entity
-public class Client {
-
-    @Id
-    @GeneratedValue
-    private int id;
-
-    @Column(name = "client_name", nullable = false)
+public class ClientDTO implements Serializable {
+    private int clientId;
     private String clientName;
+    private Set<ProjectDTO> projectDTOS;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    private Set<Project> projects;
-
-    public int getId() {
-        return id;
+    public int getClientId() {
+        return clientId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public String getClientName() {
@@ -46,12 +33,12 @@ public class Client {
         this.clientName = clientName;
     }
 
-    public Set<Project> getProjects() {
-        return projects;
+    public Set<ProjectDTO> getProjectDTOS() {
+        return projectDTOS;
     }
 
-    public void setProjects(Set<Project> projects) {
-        this.projects = projects;
+    public void setProjectDTOS(Set<ProjectDTO> projectDTOS) {
+        this.projectDTOS = projectDTOS;
     }
 
     @Override
@@ -64,27 +51,30 @@ public class Client {
             return false;
         }
 
-        Client client = (Client) o;
+        ClientDTO clientDTO = (ClientDTO) o;
 
         return new EqualsBuilder()
-            .append(id, client.id)
-            .append(clientName, client.clientName)
+            .append(clientId, clientDTO.clientId)
+            .append(clientName, clientDTO.clientName)
+            .append(projectDTOS, clientDTO.projectDTOS)
             .isEquals();
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-            .append(id)
+            .append(clientId)
             .append(clientName)
+            .append(projectDTOS)
             .toHashCode();
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-            .append("id", id)
+            .append("clientId", clientId)
             .append("clientName", clientName)
+            .append("projectDTOS", projectDTOS)
             .toString();
     }
 }
