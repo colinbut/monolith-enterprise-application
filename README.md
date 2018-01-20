@@ -19,6 +19,9 @@
 This project aims to provide a skeleton example of a common traditional (perhaps now viewed as legacy) enterprise
 like application. 
 
+This project's concepts are an extension of another demo project Sales-Order-System where it showcase more advanced common features that 
+is normally seen in a traditional big-scale enterprise application.
+
 _Note, this project is not a complete application and i have no intention of making it complete, it only serves the purpose of providing a variety of specific
 demonstrations only._
 
