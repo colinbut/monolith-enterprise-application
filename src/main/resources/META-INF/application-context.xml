@@ -10,6 +10,7 @@
     <import resource="application-context-db.xml" />
     <import resource="application-context-cache.xml" />
     <import resource="application-context-messaging.xml" />
+    <import resource="application-context-scheduling.xml" />
 
     <!-- enabling @Controllers scanning -->
     <context:component-scan base-package="com.mycompany.entapp.snowman">

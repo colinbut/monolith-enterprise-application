@@ -241,7 +241,7 @@
             <version>${quartz.version}</version>
         </dependency>
 
-        <!-- required for Spring - Quartz -->
+        <!-- this is also required for Spring - Quartz -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
