@@ -12,6 +12,7 @@
                 <entry key="reportingSnapshotTask" value-ref="reportingSnapshotTask"/>
             </map>
         </property>
+        <property name="durability" value="true" />
     </bean>
 
     <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
