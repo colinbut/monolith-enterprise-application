@@ -7,12 +7,12 @@
 
     <cache:annotation-config/>
 
-    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+    <bean id="ehcacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
         <property name="configLocation" value="ehcache.xml"/>
         <property name="shared" value="true"/>
     </bean>
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-        <property name="cache-manager-ref" ref="ehcache"/>
+        <property name="cache-manager-ref" ref="ehcacheManagerFactoryBean"/>
     </bean>
 
 
