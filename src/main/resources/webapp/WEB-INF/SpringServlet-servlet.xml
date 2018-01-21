@@ -3,6 +3,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="classpath*:/META-INF/application-context.xml" />
+    <import resource="classpath*:/META-INF/ehcache.xml" />
+
 
     <bean name="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"/>
 
