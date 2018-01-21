@@ -32,12 +32,12 @@
         <property name="validationMessageSource" ref="messageSource" />
     </bean>
 
-    <context:property-placeholder location="classpath:persistence-mysql.properties" />
+    <context:property-placeholder location="classpath:application.properties" />
 
     <!--<bean-->
         <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
         <!--<property name="location">-->
-            <!--<value>persistence-mysql.properties</value>-->
+            <!--<value>application.properties</value>-->
         <!--</property>-->
     <!--</bean>-->
 
