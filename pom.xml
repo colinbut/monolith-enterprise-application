@@ -31,7 +31,7 @@
         <hibernate.entitymanager.version>4.3.10.Final</hibernate.entitymanager.version>
         <hibernate.c3po.version>4.3.10.Final</hibernate.c3po.version>
         <joda.time.version>2.9.9</joda.time.version>
-        <ehcache.version>3.3.0</ehcache.version>
+        <ehcache.version>2.9.1</ehcache.version>
         <activemq-spring.version>5.10.0</activemq-spring.version>
         <quartz.version>2.2.1</quartz.version>
     </properties>
@@ -211,7 +211,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.ehcache</groupId>
+            <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <version>${ehcache.version}</version>
         </dependency>
