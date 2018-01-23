@@ -12,7 +12,7 @@
         <property name="shared" value="true"/>
     </bean>
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-        <property name="cache-manager-ref" ref="ehcacheManagerFactoryBean"/>
+        <property name="cacheManager" ref="ehcacheManagerFactoryBean"/>
     </bean>
 
 </beans>
