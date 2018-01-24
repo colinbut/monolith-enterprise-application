@@ -35,6 +35,16 @@
 
     <context:property-placeholder location="classpath:application.properties" />
 
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
     <!--<bean-->
         <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
         <!--<property name="location">-->
