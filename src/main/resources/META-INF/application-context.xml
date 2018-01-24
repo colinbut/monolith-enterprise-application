@@ -11,6 +11,7 @@
     <import resource="application-context-cache.xml" />
     <import resource="application-context-messaging.xml" />
     <import resource="application-context-scheduling.xml" />
+    <import resource="application-context-rest.xml" />
 
     <!-- enabling @Controllers scanning -->
     <context:component-scan base-package="com.mycompany.entapp.snowman">
@@ -34,16 +35,6 @@
     </bean>
 
     <context:property-placeholder location="classpath:application.properties" />
-
-    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
-        <property name="messageConverters">
-            <list>
-                <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-                <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
-            </list>
-        </property>
-    </bean>
 
     <!--<bean-->
         <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
