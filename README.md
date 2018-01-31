@@ -51,7 +51,7 @@ Instead of using a Layered Architecture where you commonly have 3 layers with on
 a Hexagonal Architecture (Ports and Adapters). The core domain comprises of the main business logic would be the inner and
 the application infrastructure (Database, Message Queues, REST endpoints) would be the outer layers. 
 
-![Image of a Hexagonal Architecture](etc/HexagaonalArchitecture.png)  
+![Image of a Hexagonal Architecture](etc/HexagonalArchitecture.png)  
 
 This is how the system components fit together:
 
