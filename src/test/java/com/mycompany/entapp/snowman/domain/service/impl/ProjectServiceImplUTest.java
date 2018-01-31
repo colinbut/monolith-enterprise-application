@@ -11,11 +11,13 @@ import com.mycompany.entapp.snowman.domain.repository.ProjectRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.eq;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProjectServiceImplUTest {
@@ -83,7 +85,7 @@ public class ProjectServiceImplUTest {
     public void testDeleteExistingProjectShouldDeleteExistingProject() {
         Project existingProject = ProjectTestHelper.getProject();
 
-        Mockito.when(projectRepository.findProject(existingProject.getId())).thenReturn(null);
+        Mockito.when(projectRepository.findProject(PROJECT_ID)).thenReturn(existingProject);
         Mockito.doNothing().when(projectRepository).removeProject(PROJECT_ID);
 
         classUnderTest.deleteProject(PROJECT_ID);
