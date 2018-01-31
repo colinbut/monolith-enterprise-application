@@ -1,5 +1,7 @@
 # Enterprise Application : Snowman
 
+[![Build Status](https://travis-ci.org/colinbut/enterprise-application.svg?branch=master)](https://travis-ci.org/colinbut/enterprise-application)
+
 ## Table of Contents
 
 - [Preamble](#preamble)
