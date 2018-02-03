@@ -20,6 +20,8 @@ public class UserDaoImpl implements UserDao {
 
     private static final String GET_USER_WITH_USERID_QUERY = "SELECT * FROM user where id = ?";
 
+    private static final String DELETE_USER_WITH_USERID = "DELETE FROM user where id = ?";
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -49,7 +51,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void removeUser(int userId) {
-        // TODO implement
-        throw new RuntimeException("Not Yet Implemented");
+        jdbcTemplate.update(DELETE_USER_WITH_USERID, userId);
     }
 }
