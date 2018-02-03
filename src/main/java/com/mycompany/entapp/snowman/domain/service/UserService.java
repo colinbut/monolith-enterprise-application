@@ -9,4 +9,5 @@ import com.mycompany.entapp.snowman.domain.model.User;
 
 public interface UserService {
     User findUser(String userId);
+    void createUser(User user);
 }

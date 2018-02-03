@@ -22,5 +22,9 @@ public class UserServiceImpl implements UserService {
         return userDao.findUser(Integer.parseInt(userId));
     }
 
+    @Override
+    public void createUser(User user){
+        userDao.saveUser(user);
+    }
 
 }
