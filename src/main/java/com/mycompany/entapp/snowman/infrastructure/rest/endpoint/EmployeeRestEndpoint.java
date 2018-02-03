@@ -33,9 +33,16 @@ public class EmployeeRestEndpoint {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ResponseEntity<?> createEmployee(@Valid EmployeeResource employeeResource) {
+    public ResponseEntity createEmployee(@Valid EmployeeResource employeeResource) {
         Employee employee = EmployeeResourceMapper.mapEmployeeResourceToEmployee(employeeResource);
         employeeService.createEmployee(employee);
+        return ResponseEntity.ok().build();
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ResponseEntity updateExistingEmployee(@Valid EmployeeResource employeeResource){
+        Employee employee = EmployeeResourceMapper.mapEmployeeResourceToEmployee(employeeResource);
+        employeeService.updateEmployee(employee);
         return ResponseEntity.ok().build();
     }
 

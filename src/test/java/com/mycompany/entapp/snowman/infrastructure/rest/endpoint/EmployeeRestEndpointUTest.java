@@ -14,7 +14,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -57,8 +56,29 @@ public class EmployeeRestEndpointUTest {
         EmployeeResource employeeResource = new EmployeeResource();
 
         PowerMockito.when(EmployeeResourceMapper.mapEmployeeResourceToEmployee(employeeResource)).thenReturn(employee);
+        Mockito.doNothing().when(employeeService).createEmployee(employee);
 
         systemUnderTest.createEmployee(employeeResource);
+
+        PowerMockito.verifyStatic(EmployeeResourceMapper.class);
+        Mockito.verify(employeeService, Mockito.times(1)).createEmployee(employee);
+    }
+
+    @Test
+    public void testUpdateExistingEmployeeShouldUpdateExistingEmployee() {
+        PowerMockito.mockStatic(EmployeeResourceMapper.class);
+
+        Employee employee = new Employee();
+
+        EmployeeResource employeeResource = new EmployeeResource();
+
+        PowerMockito.when(EmployeeResourceMapper.mapEmployeeResourceToEmployee(employeeResource)).thenReturn(employee);
+        Mockito.doNothing().when(employeeService).updateEmployee(employee);
+
+        systemUnderTest.updateExistingEmployee(employeeResource);
+
+        PowerMockito.verifyStatic(EmployeeResourceMapper.class);
+        Mockito.verify(employeeService, Mockito.times(1)).updateEmployee(employee);
     }
 
     @Test
