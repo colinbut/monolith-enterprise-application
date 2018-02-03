@@ -38,4 +38,10 @@ public class UserRestEndpoint {
         userService.createUser(user);
         return ResponseEntity.ok().build();
     }
+
+    @RequestMapping(value = "{userId}/delete", method = RequestMethod.DELETE)
+    public ResponseEntity deleteUser(@PathVariable Integer userId) {
+        userService.deleteUser(userId);
+        return ResponseEntity.ok().build();
+    }
 }

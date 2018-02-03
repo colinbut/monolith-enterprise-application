@@ -80,4 +80,15 @@ public class UserRestEndpointUTest {
 
         Mockito.verify(userService, Mockito.times(1)).createUser(user);
     }
+
+    @Test
+    public void testDeleteUser(){
+        int userId = 1;
+
+        Mockito.doNothing().when(userService).deleteUser(userId);
+
+        classInTest.deleteUser(userId);
+
+        Mockito.verify(userService, Mockito.times(1)).deleteUser(userId);
+    }
 }

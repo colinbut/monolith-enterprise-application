@@ -43,6 +43,13 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void saveUser(User user) {
+        // TODO implement
+        throw new RuntimeException("Not Yet Implemented");
+    }
 
+    @Override
+    public void removeUser(int userId) {
+        // TODO implement
+        throw new RuntimeException("Not Yet Implemented");
     }
 }
