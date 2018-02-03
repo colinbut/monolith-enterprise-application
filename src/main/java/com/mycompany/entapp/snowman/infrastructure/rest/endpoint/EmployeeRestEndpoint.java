@@ -33,9 +33,15 @@ public class EmployeeRestEndpoint {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ResponseEntity<Object> createEmployee(@Valid EmployeeResource employeeResource) {
+    public ResponseEntity<?> createEmployee(@Valid EmployeeResource employeeResource) {
         Employee employee = EmployeeResourceMapper.mapEmployeeResourceToEmployee(employeeResource);
         employeeService.createEmployee(employee);
+        return ResponseEntity.ok().build();
+    }
+
+    @RequestMapping(value = "{employeeId}/delete", method = RequestMethod.DELETE)
+    public ResponseEntity deleteExistingEmployee(@PathVariable Integer employeeId){
+        employeeService.deleteEmployee(employeeId);
         return ResponseEntity.ok().build();
     }
 }

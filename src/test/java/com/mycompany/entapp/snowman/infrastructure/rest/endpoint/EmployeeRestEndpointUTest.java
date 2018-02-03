@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -41,6 +42,17 @@ public class EmployeeRestEndpointUTest {
         PowerMockito.when(EmployeeResourceMapper.mapEmployeeResourceToEmployee(employeeResource)).thenReturn(employee);
 
         systemUnderTest.createEmployee(employeeResource);
+    }
+
+    @Test
+    public void testDeleteEmployeeShouldDeleteEmployee(){
+        int employeeId = 7;
+
+        Mockito.doNothing().when(employeeService).deleteEmployee(employeeId);
+
+        systemUnderTest.deleteExistingEmployee(employeeId);
+
+        Mockito.verify(employeeService, Mockito.times(1)).deleteEmployee(employeeId);
     }
 
 }
