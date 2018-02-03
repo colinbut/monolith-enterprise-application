@@ -18,6 +18,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import static org.junit.Assert.*;
 
@@ -30,6 +32,21 @@ public class EmployeeRestEndpointUTest {
 
     @InjectMocks
     private EmployeeRestEndpoint systemUnderTest = new EmployeeRestEndpoint();
+
+    @Test
+    public void testGetEmployeeShouldGetEmployee() {
+        Integer employeeId = 5;
+
+        Employee employee = new Employee();
+        EmployeeResource employeeResource = new EmployeeResource();
+
+        PowerMockito.when(EmployeeResourceMapper.mapEmployeeToEmployeeResource(employee)).thenReturn(employeeResource);
+
+        ResponseEntity<EmployeeResource> responseEntity = systemUnderTest.getEmployee(employeeId);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(employeeResource, responseEntity.getBody());
+    }
 
     @Test
     public void testCreateEmployeeShouldCreateEmployee() {
