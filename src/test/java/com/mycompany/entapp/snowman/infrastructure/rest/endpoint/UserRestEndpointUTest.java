@@ -14,7 +14,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -38,19 +37,25 @@ public class UserRestEndpointUTest {
     @Test
     public void getUserWithUserIdShouldReturnTheUser() {
         User user = new User();
-        user.setUserId(1);
-        user.setUsername("Username");
-        user.setPassword("Password");
-        user.setFirstname("Firstname");
-        user.setLastname("Lastname");
-        user.setEmail("Email");
+
+        UserResource userResource = new UserResource();
+        userResource.setUserId(1);
+        userResource.setUsername("Username");
+        userResource.setPassword("Password");
+        userResource.setFirstName("Firstname");
+        userResource.setSecondName("Secondname");
+        userResource.setEmail("Email");
 
         Mockito.when(userService.findUser("1")).thenReturn(user);
 
-        ResponseEntity<User> responseEntity = classInTest.getUser("1");
+        PowerMockito.mockStatic(UserResourceMapper.class);
+
+        PowerMockito.when(UserResourceMapper.mapUserToUserResource(user)).thenReturn(userResource);
+
+        ResponseEntity<UserResource> responseEntity = classInTest.getUser("1");
 
         assertTrue(responseEntity.getStatusCode() == HttpStatus.OK);
-        assertEquals(user, responseEntity.getBody());
+        assertEquals(userResource, responseEntity.getBody());
     }
 
     @Test

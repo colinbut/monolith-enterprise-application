@@ -26,8 +26,10 @@ public class UserRestEndpoint {
     private UserService userService;
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public ResponseEntity<User> getUser(@PathVariable("userId") String userId) {
-        return ResponseEntity.ok(userService.findUser(userId));
+    public ResponseEntity<UserResource> getUser(@PathVariable("userId") String userId) {
+        User user = userService.findUser(userId);
+        UserResource userResource = UserResourceMapper.mapUserToUserResource(user);
+        return ResponseEntity.ok(userResource);
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)

@@ -22,4 +22,15 @@ public final class UserResourceMapper {
         user.setEmail(userResource.getEmail());
         return user;
     }
+
+    public static UserResource mapUserToUserResource(User user) {
+        UserResource userResource = new UserResource();
+        userResource.setUserId(user.getUserId());
+        userResource.setUsername(user.getUsername());
+        userResource.setPassword(user.getPassword());
+        userResource.setEmail(user.getEmail());
+        userResource.setFirstName(user.getFirstname());
+        userResource.setSecondName(user.getLastname());
+        return userResource;
+    }
 }

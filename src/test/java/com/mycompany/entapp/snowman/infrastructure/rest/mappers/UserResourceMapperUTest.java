@@ -41,4 +41,31 @@ public class UserResourceMapperUTest {
         assertEquals(secondName, user.getLastname());
 
     }
+
+    @Test
+    public void testMapUserToUserResource(){
+        int userId = 1;
+        String username = "Username";
+        String password = "Password1";
+        String email = "Email";
+        String firstName = "Firstname";
+        String secondName = "SecondName";
+
+        User user = new User();
+        user.setUserId(userId);
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+        user.setFirstname(firstName);
+        user.setLastname(secondName);
+
+        UserResource userResource = UserResourceMapper.mapUserToUserResource(user);
+
+        assertEquals(userId, userResource.getUserId());
+        assertEquals(username, userResource.getUsername());
+        assertEquals(password, userResource.getPassword());
+        assertEquals(email, userResource.getEmail());
+        assertEquals(firstName, userResource.getFirstName());
+        assertEquals(secondName, userResource.getSecondName());
+    }
 }
