@@ -39,6 +39,13 @@ public class UserRestEndpoint {
         return ResponseEntity.ok().build();
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ResponseEntity updateExistingUser(@Valid UserResource userResource){
+        User user = UserResourceMapper.mapUserResourceToUser(userResource);
+        userService.updateUser(user);
+        return ResponseEntity.ok().build();
+    }
+
     @RequestMapping(value = "{userId}/delete", method = RequestMethod.DELETE)
     public ResponseEntity deleteUser(@PathVariable Integer userId) {
         userService.deleteUser(userId);

@@ -82,6 +82,28 @@ public class UserRestEndpointUTest {
     }
 
     @Test
+    public void testUpdateUser(){
+        UserResource userResource = new UserResource();
+
+        User user = new User();
+        user.setUserId(1);
+        user.setUsername("Username");
+        user.setPassword("Password");
+        user.setFirstname("Firstname");
+        user.setLastname("Lastname");
+        user.setEmail("Email");
+
+        PowerMockito.mockStatic(UserResourceMapper.class);
+
+        PowerMockito.when(UserResourceMapper.mapUserResourceToUser(userResource)).thenReturn(user);
+        Mockito.doNothing().when(userService).updateUser(user);
+
+        classInTest.updateExistingUser(userResource);
+
+        Mockito.verify(userService, Mockito.times(1)).createUser(user);
+    }
+
+    @Test
     public void testDeleteUser(){
         int userId = 1;
 

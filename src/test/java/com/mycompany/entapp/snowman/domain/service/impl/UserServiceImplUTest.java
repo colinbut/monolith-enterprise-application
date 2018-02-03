@@ -57,6 +57,17 @@ public class UserServiceImplUTest {
     }
 
     @Test
+    public void testUpdateUser() {
+        User user = getUser(1);
+
+        Mockito.doNothing().when(userDao).saveUser(user);
+
+        userService.createUser(user);
+
+        Mockito.verify(userDao, Mockito.times(1)).saveUser(user);
+    }
+
+    @Test
     public void testDeleteUser(){
         int userId = 1;
         User user = getUser(1);
