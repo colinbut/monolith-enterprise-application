@@ -18,8 +18,6 @@ import java.sql.SQLException;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    //private static final Logger LOG = LoggerFactory.getLogger(UserDaoImpl.class);
-
     private static final String GET_USER_WITH_USERID_QUERY = "SELECT * FROM user where id = ?";
 
     @Autowired

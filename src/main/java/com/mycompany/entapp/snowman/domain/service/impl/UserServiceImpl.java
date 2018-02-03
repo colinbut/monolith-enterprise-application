@@ -21,4 +21,6 @@ public class UserServiceImpl implements UserService {
     public User findUser(String userId) {
         return userDao.findUser(Integer.parseInt(userId));
     }
+
+
 }
