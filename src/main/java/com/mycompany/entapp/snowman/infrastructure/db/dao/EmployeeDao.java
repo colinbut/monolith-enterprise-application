@@ -10,6 +10,5 @@ import com.mycompany.entapp.snowman.domain.model.Employee;
 public interface EmployeeDao {
     Employee retrieveEmployee(int employeeId);
     void saveEmployee(Employee employee);
-    void updateEmployee(Employee employee);
     void deleteEmployee(int employeeId);
 }

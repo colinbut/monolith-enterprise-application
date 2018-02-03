@@ -19,16 +19,11 @@ public class EmployeeDaoImpl extends AbstractHibernateDao implements EmployeeDao
 
     @Override
     public void saveEmployee(Employee employee) {
-
-    }
-
-    @Override
-    public void updateEmployee(Employee employee) {
-
+        getCurrentSession().save(employee);
     }
 
     @Override
     public void deleteEmployee(int employeeId) {
-
+        getCurrentSession().delete(employeeId);
     }
 }
