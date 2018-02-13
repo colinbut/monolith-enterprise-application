@@ -11,6 +11,8 @@
     - [Java - JDBC](#jdbc)
     - [Spring - JdbcTemplate](#jdbctemplate)
     - [Object Relational Mapping](#orm)
+- [Messaging](#messaging)
+- [Caching](#caching)
 - [Uber Jar](#uber-jar)
 - [Embedded Jetty](#embedded-jetty)
 - [Database Migration](#database-migration)
@@ -80,6 +82,16 @@ Object Relational Mapping (ORM) is the mapping of relational database tables to 
 We use JPA standard along the the Hibernate implementation to achieve this. Model objects (Entities) are part of thus 'anemic'
 data model. The DAOs encapsulates Hibernate EntityManager to do the basic CRUD operations.
 
+### <a name="messaging"></a>Messaging
+
+Communication to 3rd party external systems is primarily achieved via messaging using JMS & ActiveMQ as the 
+implementing underlying Messaging System (Message Brokers, Message Queues, Topics).
+ 
+Apache ActiveMQ is JMS compliant belonging to open source apache foundation. One of the commonly used MQ out there. 
+
+### <a name="caching"></a>Caching
+
+[TBD]
 
 ### <a name="uber-jar"></a>Uber Jar
 
