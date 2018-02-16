@@ -7,6 +7,7 @@
 - [Preamble](#preamble)
 - [Pre-requisites](#prerequisites)
 - [Software Architecture](#architecture)
+- [Database Design](#db-design)
 - [Data Access](#data-access)
     - [Java - JDBC](#jdbc)
     - [Spring - JdbcTemplate](#jdbctemplate)
@@ -60,6 +61,14 @@ the application infrastructure (Database, Message Queues, REST endpoints) would 
 This is how the system components fit together:
 
 ![Image of System Components](etc/SystemComponents.png)
+
+### <a name="db-design"></a>Database Design
+
+![Image of ER diagram](etc/entity-relationship.png)
+
+Database table structure:
+
+![Image of Table Diagram](etc/relation-table-schema.png)
 
 ### <a name="data-access"></a>Data Access
 
