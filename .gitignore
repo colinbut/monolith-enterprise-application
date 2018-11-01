@@ -10,6 +10,7 @@
 *.classpath
 *.iml
 
+.vscode/
 
 .settings/*
 .idea/*
