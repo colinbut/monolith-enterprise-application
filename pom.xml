@@ -9,19 +9,19 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <spring.version>4.3.13.RELEASE</spring.version>
+        <spring.version>[4.3.18,)</spring.version>
         <junit.version>4.12</junit.version>
         <java.version>1.7</java.version>
         <mockito.version>1.10.19</mockito.version>
         <powermock.version>1.7.3</powermock.version>
-        <jetty.version>9.4.3.v20170317</jetty.version>
+        <jetty.version>[9.4.11.v20180605,)</jetty.version>
         <jaxrs.version>2.0</jaxrs.version>
         <bean.validation.version>2.0.0.Final</bean.validation.version>
         <expression.language.version>3.0.0</expression.language.version>
         <glassfish.expression.language>2.2.6</glassfish.expression.language>
         <hibernate.validator.version>5.4.2.Final</hibernate.validator.version>
         <apache.commons-lang3.version>3.6</apache.commons-lang3.version>
-        <jackson.databind.version>2.5.0</jackson.databind.version>
+        <jackson.databind.version>[2.8.11.1,)</jackson.databind.version>
         <hyperSql.version>2.3.2</hyperSql.version>
         <h2.version>1.4.187</h2.version>
         <derby.version>10.11.1.1</derby.version>
