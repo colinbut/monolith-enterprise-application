@@ -33,7 +33,7 @@
         <joda.time.version>2.9.9</joda.time.version>
         <ehcache.version>2.9.1</ehcache.version>
         <activemq-spring.version>5.10.0</activemq-spring.version>
-        <quartz.version>2.2.1</quartz.version>
+        <quartz.version>2.3.2</quartz.version>
     </properties>
 
     <dependencies>
