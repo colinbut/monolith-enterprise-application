@@ -48,7 +48,7 @@ backend web service.
  
  
 1. Start up MySQL Server 
-2. run.sh
+2. run `run.sh` script
 
 ### <a name="architecture"></a>Software Architecture
 
