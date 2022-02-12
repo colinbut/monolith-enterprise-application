@@ -207,3 +207,7 @@ Both sites would house the set of applications but only one site is up.
 If Primary site considered fail (i.e. multiple failovers of one or more applications (or application components
 if it is a Distributed Component Architecture)), then the Primary site should shutdown and thus Standby site
 would be required to be started up. 
+
+## Author
+
+Colin But.
