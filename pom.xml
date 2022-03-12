@@ -27,7 +27,7 @@
         <derby.version>10.11.1.1</derby.version>
         <mysql.version>8.0.16</mysql.version>
         <slf4j.api.version>1.7.25</slf4j.api.version>
-        <hibernate.core.version>4.3.10.Final</hibernate.core.version>
+        <hibernate.core.version>5.4.24.Final</hibernate.core.version>
         <hibernate.entitymanager.version>4.3.10.Final</hibernate.entitymanager.version>
         <hibernate.c3po.version>4.3.10.Final</hibernate.c3po.version>
         <joda.time.version>2.9.9</joda.time.version>
